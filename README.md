@@ -1,5 +1,7 @@
 # Json.Flat
-Provides static methods to flatten a Json object in to name/value pairs and back to the original Json structure.
+Provides static methods to flatten a Json object in to name/value pairs and back to the original Json structure.  
+
+Useful for storing Json object as name/value pairs in a database.
 
 ## Example
 
