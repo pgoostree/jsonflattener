@@ -1,0 +1,21 @@
+{
+  "firstName" : "Test",
+  "lastName" : "One",
+  "address" : {
+    "street" : "123 Street",
+    "city" : "City", 
+    "state" : "State",
+    "phone" : [
+      {
+        "mobile" : "123-456-7890",
+        "home" : "111-555-1219",
+        "work" : "222-111-3389"
+      },
+      {
+        "mobile" : "123-456-7890",
+        "home" : "111-555-1219",
+        "work" : "222-111-3389"
+      }
+    ]
+  }
+}
