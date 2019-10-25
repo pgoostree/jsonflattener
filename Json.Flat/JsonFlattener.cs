@@ -8,9 +8,13 @@ namespace Json.Flat
 {
     public class JsonFlattener
     {
-        public static IDictionary<string, string> Flatten(JObject json)
+        public static IDictionary<string, string> Flatten(
+            JObject json)
         {
-            if (json == null) return null;
+            if (json == null)
+            {
+                return null;
+            }
 
             // By design Json.Net will parse date formatted string to a date type.  
             // Set DateParseHandling to none so that date formatted strings are not modified.
@@ -23,7 +27,9 @@ namespace Json.Flat
                 .Where(j => !j.Children().Any())
                 .Aggregate(
                     new Dictionary<string, string>(),
-                    (props, jtoken) =>
+                    (
+                        props,
+                        jtoken) =>
                     {
                         props.Add(jtoken.Path, jtoken.ToString());
                         return props;

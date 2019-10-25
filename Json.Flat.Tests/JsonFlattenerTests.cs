@@ -7,13 +7,14 @@ namespace Json.Flat.Tests
 {
     public class JsonFlattenerTests
     {
-        private ITestOutputHelper _outputHelper;
-
-        public JsonFlattenerTests(ITestOutputHelper outputHelper)
+        public JsonFlattenerTests(
+            ITestOutputHelper outputHelper)
         {
             _outputHelper = outputHelper;
         }
-        
+
+        private readonly ITestOutputHelper _outputHelper;
+
         [Fact(DisplayName = "When Json object is flattened it should contain expected keys")]
         public void Fact1()
         {
@@ -33,7 +34,7 @@ namespace Json.Flat.Tests
             Assert.True(flattened.ContainsKey("address.phone[1].home"));
             Assert.True(flattened.ContainsKey("address.phone[1].work"));
         }
-        
+
         [Fact(DisplayName = "Flatten and write the name/value pairs to the console")]
         public void Fact2()
         {
@@ -41,11 +42,7 @@ namespace Json.Flat.Tests
 
             var flattened = JsonFlattener.Flatten(data);
 
-            foreach (var key in flattened.Keys)
-            {
-                _outputHelper.WriteLine($"{key}, {flattened[key]}");
-            }
+            foreach (var key in flattened.Keys) _outputHelper.WriteLine($"{key}, {flattened[key]}");
         }
-
     }
 }
