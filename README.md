@@ -2,8 +2,9 @@
 Provides static methods to flatten a Json object in to name/value pairs and back to the original Json structure.
 
 ## Example
+```var flattened = JsonFlattener.Flatten(data);```
 
-### Json
+### Input
 ```
 {
   "firstName" : "Test",
@@ -28,7 +29,7 @@ Provides static methods to flatten a Json object in to name/value pairs and back
 }
 ```
 
-### Result
+### Output
 ```
 firstName, Test
 lastName, One
