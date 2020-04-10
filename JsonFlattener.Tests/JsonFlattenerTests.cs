@@ -43,11 +43,11 @@ namespace Json.Flat.Tests
             var flattened = JsonFlattener.Flatten(data);
 
             var unflattened = JsonFlattener.Unflatten(flattened);
-            
+
             Assert.True(JToken.DeepEquals(data, unflattened));
         }
 
-        
+
         [Fact(DisplayName = "Flatten and write the name/value pairs to the console")]
         public void Fact3()
         {
@@ -57,7 +57,7 @@ namespace Json.Flat.Tests
 
             foreach (var key in flattened.Keys) _outputHelper.WriteLine($"{key}, {flattened[key]}");
         }
-        
+
         [Fact(DisplayName = "Un-flatten and write the json to the console")]
         public void Fact4()
         {
@@ -66,7 +66,7 @@ namespace Json.Flat.Tests
             var flattened = JsonFlattener.Flatten(data);
 
             var unflattened = JsonFlattener.Unflatten(flattened);
-            
+
             _outputHelper.WriteLine(unflattened.ToString());
         }
     }

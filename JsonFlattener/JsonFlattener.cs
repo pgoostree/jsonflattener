@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Json.Flat
 {
-    public class JsonFlattener
+    public class JsonFlattener : JsonFlattenerBase
     {
         public static IDictionary<string, object> Flatten(
             JObject json)
         {
-            if (json == null)
-            {
-                return null;
-            }
+            if (json == null) return null;
 
             // By design Json.Net will parse date formatted string to a date type.  
             // Set DateParseHandling to none so that date formatted strings are not modified.
@@ -79,10 +74,7 @@ namespace Json.Flat
                         if (null == lastItem)
                         {
                             JToken token = null;
-                            if (value.ToString() != string.Empty)
-                            {
-                                token = JToken.FromObject(value);
-                            }
+                            if (value.ToString() != string.Empty) token = JToken.FromObject(value);
 
                             obj.Add(pathSegment, token);
                         }
@@ -98,13 +90,9 @@ namespace Json.Flat
                         var index = GetArrayIndex(pathSegment);
                         array = FillEmpty(array, index);
                         if (lastItem == null)
-                        {
                             array[index] = JToken.FromObject(value);
-                        }
                         else
-                        {
                             array[index] = lastItem;
-                        }
 
                         lastItem = array;
                         break;
@@ -112,41 +100,6 @@ namespace Json.Flat
             }
 
             return lastItem;
-        }
-
-        private static IList<string> SplitPath(
-            string path)
-        {
-            IList<string> result = new List<string>();
-            var regex = new Regex(@"(?!\.)([^. ^\[\]]+)|(?!\[)(\d+)(?=\])");
-
-            foreach (Match match in regex.Matches(path)) result.Add(match.Value);
-            return result;
-        }
-
-        private static JArray FillEmpty(
-            JArray array,
-            int index)
-        {
-            for (var i = 0; i <= index; i++) array.Add(null);
-            return array;
-        }
-
-        private static JsonType GetJsonType(
-            string pathSegment)
-        {
-            return int.TryParse(pathSegment, out _) ? JsonType.Array : JsonType.Object;
-        }
-
-        private static int GetArrayIndex(
-            string pathSegment)
-        {
-            if (int.TryParse(pathSegment, out var result))
-            {
-                return result;
-            }
-
-            throw new ApplicationException("Unable to parse array index: " + pathSegment);
         }
     }
 }

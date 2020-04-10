@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json.Flat", "Json.Flat\Json.Flat.csproj", "{36512AE3-06C9-4E8F-9E8A-37E2B4F175A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFlattener", "JsonFlattener\JsonFlattener.csproj", "{36512AE3-06C9-4E8F-9E8A-37E2B4F175A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json.Flat.Tests", "Json.Flat.Tests\Json.Flat.Tests.csproj", "{4D00229C-4D66-444A-879D-9FFCEE8A1518}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFlattener.Tests", "JsonFlattener.Tests\JsonFlattener.Tests.csproj", "{4D00229C-4D66-444A-879D-9FFCEE8A1518}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

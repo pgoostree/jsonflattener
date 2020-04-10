@@ -4,6 +4,8 @@
         <TargetFramework>netcoreapp3.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>Json.Flat.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Json.Flat\Json.Flat.csproj" />
+      <ProjectReference Include="..\JsonFlattener\JsonFlattener.csproj" />
     </ItemGroup>
 
 </Project>
